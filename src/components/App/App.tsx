@@ -30,20 +30,26 @@ const App:React.FC =()=> {
     
   }
 
-  /* const submit = (event:FormEvent<HTMLButtonElement>)=>{
-    
-  } */
+  const submit = (event:FormEvent)=>{
+    event.preventDefault();
+    getWeather(city);
+  }
 
-  useEffect(()=> {
+  /* useEffect(()=> {
     getWeather(city)
-  },[])
+  },[]) */
+
+  const fahrToCelc = (degrees:number):number=>{
+    return Math.round((degrees - 32)*(5/9));
+  }
 
   return (
     <div>
-      <form>
+      <form onSubmit={submit}>
         <input type='text' placeholder='enter city' onChange={handleChange}/>
-        <button type='submit' /* onSubmit={submit} */>Get weather</button>
+        <button type='submit'>Get weather</button>
         <h2>City: {city}</h2>
+        {weather && <h2>Temperature: {fahrToCelc(weather.temp)}&#176;C</h2>}
       </form>
     </div>
   );
