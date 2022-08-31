@@ -1,57 +1,57 @@
-import React, {useState, ChangeEvent, useEffect, FormEvent} from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 import { Weather } from '../weather';
-import { json } from 'stream/consumers';
+import WeatherInfo from '../WeatherInfo/WeatherInfo'
+import InputCity from '../InputCity/InputCity';
 
 const App:React.FC =()=> {
-  const [city, setCity] = useState('Voronezh');
   const [weather, setWeather] = useState<Weather|null>(null)
+  const [city, setCity] = useState<string>()
 
   const apiKey = 'a49334b4d30df534873913fc9e2f6db1';
   const baseUrl = 'http://api.openweathermap.org/data/2.5/weather?q='
   const suffix = `&units=imperial&appid=${apiKey}`;
 
-  const handleChange = (event:ChangeEvent<HTMLInputElement>)=>{
-    setCity(event.target.value);
-  }
-
   const getWeather = async (loc:string)=>{
     const resp = await fetch(baseUrl+loc+suffix);
     if(resp.ok){
       const resToJSON = await resp.json();
+      console.log(resToJSON);
       const cityTemp: Weather = resToJSON.main;
-      cityTemp.city=resToJSON.name;
+      cityTemp.wind = resToJSON.wind.speed;
+      cityTemp.sky = resToJSON.weather[0].description;
       setWeather(cityTemp);
-      console.log(weather);
+      setCity(resToJSON.name);
     }
     else{
+      setCity(loc);
       setWeather(null);
     }
-    
   }
 
-  const submit = (event:FormEvent)=>{
-    event.preventDefault();
-    getWeather(city);
-  }
-
-  /* useEffect(()=> {
-    getWeather(city)
-  },[]) */
-
-  const fahrToCelc = (degrees:number):number=>{
-    return Math.round((degrees - 32)*(5/9));
-  }
+  useEffect(()=> {
+    getWeather('Воронеж')
+  },[])
 
   return (
-    <div>
-      <form onSubmit={submit}>
-        <input type='text' placeholder='enter city' onChange={handleChange}/>
-        <button type='submit'>Get weather</button>
-        <h2>City: {city}</h2>
-        {weather && <h2>Temperature: {fahrToCelc(weather.temp)}&#176;C</h2>}
-      </form>
-    </div>
+    <> 
+      <InputCity getWeather={getWeather}/>
+      {weather ? (
+        <>
+          <h2 className='city_name'>{city}</h2>
+          <ul className='weather__list'>
+            <li><WeatherInfo weather={weather}/></li>
+            <li><WeatherInfo weather={weather}/></li>
+            <li><WeatherInfo weather={weather}/></li>
+            <li><WeatherInfo weather={weather}/></li>
+            <li><WeatherInfo weather={weather}/></li>
+          </ul>
+        </>
+        ) : (
+          <h2 className='cantFind'>Cat can't get to {city}</h2>
+        )
+      }
+    </>
   );
 }
 
