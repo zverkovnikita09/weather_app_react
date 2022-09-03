@@ -4,4 +4,5 @@ export interface Weather{
     temp: number;
     wind: number;
     sky: string;
+    feels_like: number;
 }

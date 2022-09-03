@@ -16,7 +16,7 @@ const InputCity:React.FC< {getWeather: (loc: string)=>void}> = ({getWeather})=>{
         <form onSubmit={submit} className='city__form'>
             <h1 className="title">How does cat feel in</h1>   
             <input type='text' placeholder='enter city' onInput={handleChange} className='city__input'/>
-            <button type='submit'>Сlick to know</button>
+            <button type='submit' className="sbm__btn">Сlick to know</button>
         </form>
     )
 }
