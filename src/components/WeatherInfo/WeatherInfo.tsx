@@ -38,7 +38,7 @@ const WeatherInfo:React.FC<{weather: Weather}>=({weather}) => {
         <div className="todayContainer">
             <div className="currentWeather">
                 <div className="currentWeather__header">
-                    <img src="./sun.png" alt="" className="weatherImg"/>
+                    <img src={require("./img/sun.png")} alt="" className="weatherImg"/>
                     <div className="weatherDate">
                         <p><strong>{getCurrentDay()}</strong>{getCurrentDate()}</p>
                         <p>{ucFirstLetter(sky)}</p>
@@ -55,7 +55,7 @@ const WeatherInfo:React.FC<{weather: Weather}>=({weather}) => {
                 </div>
             </div>
             <div className="catImg">
-                <img src="./catImage.png"/>
+                <img src={require("./img/catImage.png")}/>
             </div>
         </div>
     )
