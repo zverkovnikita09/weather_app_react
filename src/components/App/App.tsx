@@ -11,7 +11,7 @@ const App:React.FC =()=> {
   const [loading, setLoading] = useState<boolean>(true);
 
   const apiKey = 'a49334b4d30df534873913fc9e2f6db1';
-  const baseUrl = 'http://api.openweathermap.org/data/2.5/weather?q='
+  const baseUrl = 'https://api.openweathermap.org/data/2.5/weather?q='
   const suffix = `&units=imperial&appid=${apiKey}`;
 
   const getWeather = async (loc:string)=>{
