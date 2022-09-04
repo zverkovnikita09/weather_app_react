@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/github.io/weather_app_react/static/css/main.5d4324a1.css",
-    "main.js": "/github.io/weather_app_react/static/js/main.098e08dd.js",
-    "index.html": "/github.io/weather_app_react/index.html",
-    "main.5d4324a1.css.map": "/github.io/weather_app_react/static/css/main.5d4324a1.css.map",
-    "main.098e08dd.js.map": "/github.io/weather_app_react/static/js/main.098e08dd.js.map"
+    "main.css": "/weather_app_react/static/css/main.5d4324a1.css",
+    "main.js": "/weather_app_react/static/js/main.098e08dd.js",
+    "index.html": "/weather_app_react/index.html",
+    "main.5d4324a1.css.map": "/weather_app_react/static/css/main.5d4324a1.css.map",
+    "main.098e08dd.js.map": "/weather_app_react/static/js/main.098e08dd.js.map"
   },
   "entrypoints": [
     "static/css/main.5d4324a1.css",
