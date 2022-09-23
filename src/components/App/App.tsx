@@ -9,6 +9,7 @@ const App:React.FC =()=> {
   const [weather, setWeather] = useState<Weather|null>(null)
   const [city, setCity] = useState<string>()
   const [loading, setLoading] = useState<boolean>(true);
+  const [feel, setFeel] = useState<String>('');
 
   const apiKey = 'a49334b4d30df534873913fc9e2f6db1';
   const baseUrl = 'https://api.openweathermap.org/data/2.5/weather?q='
@@ -22,6 +23,8 @@ const App:React.FC =()=> {
       cityTemp.wind = resToJSON.wind.speed;
       cityTemp.sky = resToJSON.weather[0].description;
       setWeather(cityTemp);
+      setFeel(setFeeling(cityTemp.sky||'', cityTemp.temp||null));
+      console.log(cityTemp.sky);
       setCity(resToJSON.name);
       setLoading(false);
     }
@@ -43,6 +46,21 @@ const App:React.FC =()=> {
     }
   }
 
+  const setFeeling = (feel:any, temp:any):string=>{
+    if(feel.includes('rain')){
+      return 'wet'
+    }
+    else if (temp<=60){
+      return 'cold'
+    }
+    else if(temp>50&&temp<86){
+      return 'warm'
+    }
+    else{
+      return 'hot'
+    }
+  }
+
   useEffect(()=> {
     getCity().then(res=>{
       getWeather(res);
@@ -55,7 +73,7 @@ const App:React.FC =()=> {
       {
         loading ? <Loader/> : weather ? (
           <>
-            <h2 className='city_name'>In <strong>{city}</strong> the cat is wet</h2>
+            <h2 className='city_name'>In <strong>{city}</strong> the cat is {feel}</h2>
             <WeatherInfo weather={weather}/>
           </>
         ) : (
