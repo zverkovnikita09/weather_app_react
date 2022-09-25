@@ -1,6 +1,7 @@
 import React from "react";
 import { Weather } from "../weather";
 import './WeatherInfo.css';
+import WeatherIcon from "../WeatherIcon/WeatherIcon";
 
 const WeatherInfo:React.FC<{weather: Weather}>=({weather}) => {
     const { humidity, temp, pressure, sky, wind, feels_like} = weather;
@@ -34,11 +35,15 @@ const WeatherInfo:React.FC<{weather: Weather}>=({weather}) => {
         const days:Array<string> = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
         return `${days[date.getDay()]}`;
     }
+
+    let image:string = sky.includes('rain') ? require('./img/raincat.png') : require('./img/warmcat.png');
+
     return(
         <div className="todayContainer">
             <div className="currentWeather">
                 <div className="currentWeather__header">
-                    <img src={require("./img/sun.png")} alt="" className="weatherImg"/>
+                    {/* <img src={require("./img/sun.png")} alt="" className="weatherImg"/> */}
+                    <WeatherIcon sky={sky}/>
                     <div className="weatherDate">
                         <p><strong>{getCurrentDay()}</strong>{getCurrentDate()}</p>
                         <p>{ucFirstLetter(sky)}</p>
@@ -55,7 +60,7 @@ const WeatherInfo:React.FC<{weather: Weather}>=({weather}) => {
                 </div>
             </div>
             <div className="catImg">
-                <img src={require("./img/catImage.png")}/>
+                <img src={image}/>
             </div>
         </div>
     )
