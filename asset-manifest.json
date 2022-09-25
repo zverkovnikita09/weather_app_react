@@ -1,15 +1,19 @@
 {
   "files": {
-    "main.css": "/weather_app_react/static/css/main.5d4324a1.css",
-    "main.js": "/weather_app_react/static/js/main.1d504ed2.js",
-    "static/media/sun.png": "/weather_app_react/static/media/sun.3ab2e5dbe21320c64e24.png",
-    "static/media/catImage.png": "/weather_app_react/static/media/catImage.2e6726032165d5c71674.png",
+    "main.css": "/weather_app_react/static/css/main.5891750a.css",
+    "main.js": "/weather_app_react/static/js/main.9a1f61fc.js",
+    "static/media/warmcat.png": "/weather_app_react/static/media/warmcat.e360a0bf10f54c2fec95.png",
+    "static/media/raincat.png": "/weather_app_react/static/media/raincat.bd824126e105d304fb00.png",
+    "static/media/clearsky.png": "/weather_app_react/static/media/clearsky.f88cf9ee1d2cda01a048.png",
+    "static/media/brokenclouds.png": "/weather_app_react/static/media/brokenclouds.0c0536fd08d6d20b0ea0.png",
+    "static/media/overcastclouds.png": "/weather_app_react/static/media/overcastclouds.80079fab028ac84fd8fb.png",
+    "static/media/lightrain.png": "/weather_app_react/static/media/lightrain.f16e3ea9da1675c4ecb5.png",
     "index.html": "/weather_app_react/index.html",
-    "main.5d4324a1.css.map": "/weather_app_react/static/css/main.5d4324a1.css.map",
-    "main.1d504ed2.js.map": "/weather_app_react/static/js/main.1d504ed2.js.map"
+    "main.5891750a.css.map": "/weather_app_react/static/css/main.5891750a.css.map",
+    "main.9a1f61fc.js.map": "/weather_app_react/static/js/main.9a1f61fc.js.map"
   },
   "entrypoints": [
-    "static/css/main.5d4324a1.css",
-    "static/js/main.1d504ed2.js"
+    "static/css/main.5891750a.css",
+    "static/js/main.9a1f61fc.js"
   ]
 }
